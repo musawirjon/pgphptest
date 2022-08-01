@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class commentsTableSeeder extends Seeder
 {
@@ -13,13 +14,11 @@ class commentsTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('comments')->insert([
-            'name' => 'John Smith',
-            'comment' => 'Example comment text added by jogn smith'
-        ]);
-        \DB::table('comments')->insert([
-            'name' => 'lisbet',
-            'comment' => 'Example comment text added by lisbet', 
-        ]);
+        foreach (User::all() as $user) { 
+            $user->comments()->create([  
+                'comment' => 'Example comment text added by'.$user->name,
+                'user_id' => $user->id, 
+            ]);
+        } 
     }
 }
