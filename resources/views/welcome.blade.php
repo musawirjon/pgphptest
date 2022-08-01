@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <title>User Card - <?=$user->name?></title>
+    <title>User Card - <?=$user->name ?? ''?></title>
     <meta charset="utf-8" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -12,6 +12,7 @@
 <body class="is-preload">
 <div id="wrapper">
     <section id="main">
+        @if(@$user)
         <header>
             <span class="avatar"><img src="images/users/<?=$user->id?>.jpg" alt="" /></span>
             <h1><?=$user->name?></h1>
@@ -21,6 +22,11 @@
             </p>
             @endforeach
         </header>
+        @else
+        <header>
+            Add id to url, to view users and comments data!
+        </header>
+        @endif
     </section>
     <footer id="footer">
         <ul class="copyright">
