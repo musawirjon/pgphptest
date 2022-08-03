@@ -58,7 +58,9 @@
 	body {
 		-webkit-text-size-adjust: none;
 	}
-
+	.navbar,.card-body{
+		z-index: 2;
+	}
 	mark {
 		background-color: transparent;
 		color: inherit;

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+Route::get('/comment/{id}', [App\Http\Controllers\HomeController::class, 'showUserComments'])->name('comment'); 
+Route::get('/comment/{id}', [App\Http\Controllers\HomeController::class, 'showUserComments'])->name('comment'); 
+Route::post('/appendUserComments', [App\Http\Controllers\HomeController::class, 'appendUserComments'])->name('appendUserComments'); 

@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/{id}', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
+Route::get('/comment/{id}', [App\Http\Controllers\HomeController::class, 'showUserComments'])->name('comment'); 
+Route::post('/appendUserComments', [App\Http\Controllers\HomeController::class, 'appendUserComments'])->name('appendUserComments'); 
